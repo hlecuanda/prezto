@@ -36,8 +36,17 @@ Stuff I've submitted to _prezto_
 - **Runcoms documentation** I wrote an explanation about [how _prezto_ ties in
   to zsh’s startup](https://github.com/hlecuanda/prezto/blob/5d2b2a776e3ae1145c25d147869371c3ddf1b274/runcoms/README.md) it turned out to be too long because i got carried away so
   I came up with a [shorter version](https://github.com/hlecuanda/prezto/blob/5ec8ce51751673bbb4e3f1c1d84858ea48fd21e5/runcoms/README.md)
+- Triage of  https://github.com/sorin-ionescu/prezto/pull/1502, recommended
+  against inclusion, as it actually takes away from the default
+  `*-line-or-history` behavior, could be considered a regression
 
 Stuff I’m working on
+-----------------------
+- Personal overrides as a module in `${ZDOTDIR:-$HOME}/contrib`
+- `dialog` based install/config
+- `very-vim` configuration bundle
+- `tprezmux` `prezto` and `tmux` alone in a house to themselves for a weekend
+  wthout adult supervision, 9 months later, this came up.
 
 -------------------------------------------------------------
 License
