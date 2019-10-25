@@ -1,136 +1,64 @@
 Prezto — Instantly Awesome Zsh
 ==============================
 
-Prezto is the configuration framework for [Zsh][1]; it enriches the command line
-interface environment with sane defaults, aliases, functions, auto completion,
-and prompt themes.
+Prezto is the configuration framework for [Zsh][1]; it enriches the command
+line interface environment with sane defaults, aliases, functions, auto
+completion, and prompt themes.
+***
 
-Installation
-------------
+This is a development fork, where I triage PRs, bugfixes and contributions or
+work on my own new stuff for Prezto, if you want to install prezto, or if you
+are looking for the [official repo](https://github.com/sorin-ionescu/prezto),
+you may find it [here](https://github.com/sorin-ionescu/prezto)
 
-Prezto will work with any recent release of Zsh, but the minimum required
-version is 4.3.11.
+## The code in this repo is mostly the work of the Prezto Team
 
-  1. Launch Zsh:
+However, branches local to this repository, **specially code *authored by me*,**
+should be considered a work in (perpetual) progress, experimental, incomplete,
+insecure, embarrasing, not representative of my work,  inelegant, containing
+spelling errors. Most of the code may be slow, unoptimized, or poorly designed; lacks tests,
+and if it doesen't lack tests, it probably fails most of them misserably; may
+contain rude remarks and expletives, insults the user and its ancestry explicitly
+on prominent parts of the UI, may not even compile, All of it should be
+considered toxic, a terrible example of best practices, mediocre example of
+worst practices and will surely cause data loss, corruption, dismotivation and incontrollable
+urges to swear inappropriately. May cause kittens to die in horrible pain and agony if
+executed. 
 
-     ```console
-     zsh
-     ```
+**Really, get the [official version](https://github.com/sorin-ionescu/prezto), it rocks!** 
 
-  2. Clone the repository:
-
-     ```console
-     git clone --recursive https://github.com/sorin-ionescu/prezto.git "${ZDOTDIR:-$HOME}/.zprezto"
-     ```
-
-  3. Create a new Zsh configuration by copying the Zsh configuration files
-     provided:
-
-     ```sh
-     setopt EXTENDED_GLOB
-     for rcfile in "${ZDOTDIR:-$HOME}"/.zprezto/runcoms/^README.md(.N); do
-       ln -s "$rcfile" "${ZDOTDIR:-$HOME}/.${rcfile:t}"
-     done
-     ```
-
-     Note: If you already have any of the given configuration files, `ln` will
-     cause error. In simple cases you can load prezto by adding the line
-     `source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"` to the bottom of your
-     `.zshrc` and keep the rest of your Zsh configuration intact. For more
-     complicated setups, it is recommended that you back up your original
-     configs and replace them with the provided prezto runcoms.
-
-  4. Set Zsh as your default shell:
-
-     ```console
-     chsh -s /bin/zsh
-     ```
-
-  5. Open a new Zsh terminal window or tab.
-
-### Troubleshooting
-
-If you are not able to find certain commands after switching to *Prezto*,
-modify the `PATH` variable in *~/.zprofile* then open a new Zsh terminal
-window or tab.
-
-Updating
+***
+Stuff you may find interesting 
 --------
+and probably safe to look at (unlike my code above)
+- This repo's [wiki](https://github.com/hlecuanda/prezto/wiki) with some articles about _prezto_
+ 
 
-Run `zprezto-update` to automatically check if there is an update to zprezto.
-If there are no file conflicts, zprezto and its submodules will be
-automatically updated. If there are conflicts you will instructed to go into
-the `$ZPREZTODIR` directory and resolve them yourself.
 
-To pull the latest changes and update submodules manually:
 
-```console
-cd $ZPREZTODIR
-git pull
-git submodule update --init --recursive
-```
+Stuff I've submitted to _prezto_
+----------------------------------------
 
-Usage
------
+- **Runcoms documentation** I wrote an explanation about [how _prezto_ ties in
+  to zsh’s startup](https://github.com/hlecuanda/prezto/blob/5d2b2a776e3ae1145c25d147869371c3ddf1b274/runcoms/README.md) it turned out to be too long because i got carried away so
+  I came up with a [shorter version](https://github.com/hlecuanda/prezto/blob/5ec8ce51751673bbb4e3f1c1d84858ea48fd21e5/runcoms/README.md)
+- Triage of  https://github.com/sorin-ionescu/prezto/pull/1502, recommended
+  against inclusion, as it actually takes away from the default
+  `*-line-or-history` behavior, could be considered a regression
 
-Prezto has many features disabled by default. Read the source code and
-accompanying README files to learn of what is available.
+Stuff I’m working on
+-----------------------
+- Personal overrides as a module in `${ZDOTDIR:-$HOME}/contrib`
+- `dialog` based install/config
+- `very-vim` configuration bundle
+- `tprezmux` `prezto` and `tmux` alone in a house to themselves for a weekend
+  wthout adult supervision, 9 months later, this came up.
 
-### Modules
-
-  1. Browse */modules* to see what is available.
-  2. Load the modules you need in *~/.zpreztorc* then open a new Zsh terminal
-     window or tab.
-
-### Themes
-
-  1. For a list of themes, type `prompt -l`.
-  2. To preview a theme, type `prompt -p name`.
-  3. Load the theme you like in *~/.zpreztorc* then open a new Zsh terminal
-     window or tab.
-
-     ![sorin theme][2]
-     Note that the 'git' module may be required for special symbols to appear,
-     such as those on the right of the above image. Add `'git'` to the `pmodule`
-     list (under `zstyle ':prezto:load' pmodule \` in your *~/.zpreztorc*) to
-     enable this module.
-
-### External Modules
-
-  1. By default modules will be loaded from */modules* and */contrib*.
-  2. Additional module directories can be added to the
-     `:prezto:load:pmodule-dirs` setting in *~/.zpreztorc*.
-
-     Note that module names need to be unique or they will cause an error when
-     loading.
-
-     ```sh
-     zstyle ':prezto:load' pmodule-dirs $HOME/.zprezto-contrib
-     ```
-
-Customization
--------------
-
-The project is managed via [Git][3]. It is highly recommended that you fork this
-project; so, that you can commit your changes and push them to [GitHub][4] to
-not lose them. If you do not know how to use Git, follow this [tutorial][5] and
-bookmark this [reference][6].
-
-Resources
----------
-
-The [Zsh Reference Card][7] and the [zsh-lovers][8] man page are indispensable.
-
+-------------------------------------------------------------
 License
 -------
 
 This project is licensed under the MIT License.
 
 [1]: http://www.zsh.org
-[2]: http://i.imgur.com/nrGV6pg.png "sorin theme"
-[3]: http://git-scm.com
-[4]: https://github.com
-[5]: http://gitimmersion.com
-[6]: https://git.github.io/git-reference/
-[7]: http://www.bash2zsh.com/zsh_refcard/refcard.pdf
-[8]: http://grml.org/zsh/zsh-lovers.html
+<!-- vim: set ft=markdown sw=4 tw=78 fdm=manual  et :-->
