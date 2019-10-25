@@ -34,9 +34,6 @@ and probably safe to look at (unlike my code above)
 - This repo's [wiki](https://github.com/hlecuanda/prezto/wiki) with some articles about _prezto_
  
 
-Stuff contributed or accepted to _prezto_ upstream
---------
-- nothing yet  
 
 
 Stuff I've submitted to _prezto_
